@@ -9,16 +9,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 p-1">
-                                <label class="form-label">Customer Name</label>
-                                <input type="text" class="form-control" id="customerNameUpdate">
-                                <label class="form-label">Customer Email</label>
-                                <input type="text" class="form-control" id="customerEmailUpdate">
-                                <label class="form-label">Customer Phone</label>
-                                <input type="text" class="form-control" id="customerPhoneUpdate">
-                                <label class="form-label">Customer Address</label>
-                                <input type="text" class="form-control" id="customerAddressUpdate">
-                                <label class="form-label">Customer Preference</label>
-                                <input type="text" class="form-control" id="customerPreferneceUpdate">
+                                
+                                <label class="form-label">Email To</label>
+                                <input type="text" class="form-control" id="emailto">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
                                 <input class="d-none" id="updateID">
                             </div>
                         </div>
