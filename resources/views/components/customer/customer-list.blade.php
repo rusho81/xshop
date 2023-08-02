@@ -58,8 +58,9 @@
         tableList.append(row)
     })
 
-    $('.mailBtn').on('click', function(){
+    $('.mailBtn').on('click', async function(){
         let id = $(this).data('id');
+        await FillUpEmailForm(id);
         $('#email-customer').modal('show');
     })
 

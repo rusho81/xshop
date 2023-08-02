@@ -11,7 +11,7 @@
                             <div class="col-12 p-1">
                                 
                                 <label class="form-label">Email To</label>
-                                <input type="text" class="form-control" id="emailto">
+                                <input type="text" disabled class="form-control" id="emailto">
                                 <label class="form-label">Subject</label>
                                 <input type="text" class="form-control" id="subject">
                                 <label class="form-label">Message</label>
@@ -29,3 +29,14 @@
         </div>
     </div>
 </div>
+
+<script>
+        async function FillUpEmailForm(id) {
+        document.getElementById("updateID").value=id;
+        showLoader();
+        let res = await axios.post('/customer-by-id', {id:id});
+        hideLoader();
+        document.getElementById("emailto").value=res.data['email'];
+
+    }
+</script>
