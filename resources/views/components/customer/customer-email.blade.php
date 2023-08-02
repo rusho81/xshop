@@ -24,7 +24,7 @@
             </div>
             <div class="modal-footer">
                 <button id="update-modal-close" class="btn btn-sm btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                <button onclick="Update()" id="update-btn" class="btn btn-sm  btn-success" >Update</button>
+                <button onclick="Update()" id="update-btn" class="btn btn-sm  btn-success" >Send</button>
             </div>
         </div>
     </div>
