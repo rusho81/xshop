@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Customer</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Send Email</h5>
             </div>
             <div class="modal-body">
                 <form id="update-form">
