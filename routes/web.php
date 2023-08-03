@@ -39,4 +39,5 @@ Route::post('/delete-customer',[CustomerController::class, 'CustomerDelete'])->m
 Route::get('/list-customer',[CustomerController::class, 'CustomerList'])->middleware([TokenVarificationMiddleware::class]);
 Route::post('/update-customer',[CustomerController::class, 'CustomerUpdate'])->middleware([TokenVarificationMiddleware::class]);
 Route::post('/customer-by-id',[CustomerController::class, 'CustomerById'])->middleware([TokenVarificationMiddleware::class]);
+Route::post('/send-mail', [CustomerController::class, 'SendPromoMail'])->middleware([TokenVarificationMiddleware::class]);
 

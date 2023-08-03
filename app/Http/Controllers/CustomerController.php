@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PromoMail;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -59,5 +61,23 @@ class CustomerController extends Controller
         ->where('user_id', $user_id)
         ->first();
 
+    }
+
+    function SendPromoMail(Request $request) {
+        $email = $request->input('email');
+        $mySubject = $request->input('subject');
+        $message = $request->input('message');
+        if($message){
+            Mail::to($email)->send(new PromoMail($mySubject, $message));
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Mail Send',
+            ]);
+        }else {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'unauthorised',
+            ]);
+        }
     }
 }
