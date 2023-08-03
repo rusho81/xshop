@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Send Email</h5>
             </div>
             <div class="modal-body">
-                <form id="update-form">
+                <form id="email-form">
                     <div class="container">
                         <div class="row">
                             <div class="col-12 p-1">
@@ -23,7 +23,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="update-modal-close" class="btn btn-sm btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                <button id="mail-modal-close" class="btn btn-sm btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
                 <button onclick="Send()" id="update-btn" class="btn btn-sm  btn-success" >Send</button>
             </div>
         </div>
@@ -39,5 +39,33 @@
         document.getElementById("emailto").value=res.data['email'];
     }
 
+    async function Send() {
+        var emailTo = document.getElementById("emailto").value;
+        var subjectTo = document.getElementById("subject").value;
+        var mailMessage = document.getElementById("message").value;
+
+        if(emailTo.length === 0){
+            errorToast("Mail Required!");
+        }else if(subjectTo.length === 0){
+            errorToast("Subject Required!");
+        }else if(mailMessage.length === 0){
+            errorToast("Message Required!");
+        }else {
+            document.getElementById('mail-modal-close').click();
+            showLoader();
+            let res = await axios.post('/send-mail', {
+                email:emailTo,
+                subject:subjectTo,
+                message:mailMessage});
+            hideLoader();
+
+            if(res.status===200 && res.data['status']==='success'){
+                successToast("Message Send");
+                document.getElementById("email-form").reset(); 
+            }else{
+                errorToast("Message sending failed!");
+            }
+        }
+    }
 
 </script>
